@@ -1,0 +1,23 @@
+{
+  "name": "jwt-generator",
+  "version": "1.0.0",
+  "description": "Basic jwt generator",
+  "author": "YSidorka",
+  "license": "MIT",
+  "main": "src/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YSidorka/jwt-generator.git"
+  },
+  "engines": {
+    "node": ">=20.0.0 <23.0.0",
+    "npm": ">=9.8.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "node --inspect app.js"
+  }
+}

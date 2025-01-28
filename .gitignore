@@ -1,0 +1,12 @@
+.idea
+.vscode
+
+node_modules
+docs
+
+.env
+.env.json
+
+_tmp
+public.key
+private.key
