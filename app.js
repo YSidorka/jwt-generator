@@ -4,11 +4,8 @@ const jwt = require('jsonwebtoken');
 // load env variables
 // process.loadEnvFile('.env');
 
-
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
-console.log(JWT_SECRET)
-
 const JWT_PUBLIC = process.env.JWT_SECRET || 'your-public-key';
 const TOKEN_EXPIRY = process.env.TOKEN_EXPIRY || '1d';
 
