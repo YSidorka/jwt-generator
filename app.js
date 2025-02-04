@@ -49,7 +49,8 @@ const server = http.createServer(async (req, res) => {
       const { exp, ...body } = requestBody;
 
       const payload = { ...body };
-      const token = jwt.sign(payload, JWT_SECRET, { algorithm: 'RS256', expiresIn: exp ? `${exp}d` : TOKEN_EXPIRY });
+      const expiresIn = exp ? `${exp}d` : TOKEN_EXPIRY;
+      const token = jwt.sign(payload, JWT_SECRET, { algorithm: 'RS256', expiresIn });
 
       try {
         const decoded = jwt.verify(token, JWT_PUBLIC, { algorithms: ['RS256'] });
@@ -60,7 +61,7 @@ const server = http.createServer(async (req, res) => {
 
       return generateResponse(res, 200, {
         token,
-        expiresIn: TOKEN_EXPIRY,
+        expiresIn,
         tokenType: 'Bearer'
       });
 
