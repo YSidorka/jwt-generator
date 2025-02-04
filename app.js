@@ -46,9 +46,10 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'POST' && req.url === '/token') {
     try {
       const requestBody = await parseBody(req) || {};
+      const { exp, ...body } = requestBody;
 
-      const payload = { ...requestBody };
-      const token = jwt.sign(payload, JWT_SECRET, { algorithm: 'RS256', expiresIn: TOKEN_EXPIRY });
+      const payload = { ...body };
+      const token = jwt.sign(payload, JWT_SECRET, { algorithm: 'RS256', expiresIn: exp ? `${exp}d` : TOKEN_EXPIRY });
 
       try {
         const decoded = jwt.verify(token, JWT_PUBLIC, { algorithms: ['RS256'] });
